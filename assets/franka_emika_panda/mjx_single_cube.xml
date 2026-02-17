@@ -1,35 +1,31 @@
 <mujoco model="panda scene">
   <include file="mjx_scene.xml"/>
 
+  <default>
+    <default class="bin_wall">
+      <geom type="box" size="0.06 0.003 0.04"
+            rgba="0 1 0 1" condim="3" friction="1 .03 .003"
+            contype="1" conaffinity="1" solref="0.01 1"/>
+    </default>
+  </default>
+
   <worldbody>
     <camera name="side_camera" pos="1.21 0.01 1.57" quat= "0.69 0.18 0.18 0.68"/>
     <body name="bin" pos="0.5 0.3 0.035125">
       <freejoint/>
-      <geom type="box" name="bin_bottom" size="0.06 0.06 0.003" 
-            rgba="0 1 0 1" condim="3" friction="1 .03 .003" 
-            contype="2" conaffinity="1" solref="0.01 1"/>
-      <geom type="box" name="bin_front" pos="0 0.06 0.04" 
-            size="0.06 0.003 0.04" 
-            rgba="0 1 0 1" condim="3" friction="1 .03 .003" 
-            contype="2" conaffinity="1" solref="0.01 1"/>
-      <geom type="box" name="bin_back" pos="0 -0.06 0.04" 
-            size="0.06 0.003 0.04" 
-            rgba="0 1 0 1" condim="3" friction="1 .03 .003" 
-            contype="2" conaffinity="1" solref="0.01 1"/>
-      <geom type="box" name="bin_left" pos="-0.06 0 0.04" 
-            size="0.003 0.06 0.04" 
-            rgba="0 1 0 1" condim="3" friction="1 .03 .003" 
-            contype="2" conaffinity="1" solref="0.01 1"/>
-      <geom type="box" name="bin_right" pos="0.06 0 0.04" 
-            size="0.003 0.06 0.04" 
-            rgba="0 1 0 1" condim="3" friction="1 .03 .003" 
-            contype="2" conaffinity="1" solref="0.01 1"/>
+      <geom type="box" name="bin_bottom" size="0.06 0.06 0.003"
+            rgba="0 1 0 1" condim="3" friction="1 .03 .003"
+            contype="1" conaffinity="1" solref="0.01 1"/>
+      <geom class="bin_wall" name="bin_front" pos="0 0.06 0.04"/>
+      <geom class="bin_wall" name="bin_back"  pos="0 -0.06 0.04"/>
+      <geom class="bin_wall" name="bin_left"  pos="-0.06 0 0.04" euler="0 0 1.57"/>
+      <geom class="bin_wall" name="bin_right" pos="0.06 0 0.04"  euler="0 0 1.57"/>
     </body>
 
     <body name="box" pos="0.5 0 0.03">
       <freejoint/>
       <geom type="box" name="box" size="0.02 0.02 0.03" condim="3"
-       friction="1 .03 .003" rgba="0 1 0 1" contype="2" conaffinity="1" solref="0.01 1"/>
+       friction="1 .03 .003" rgba="0 1 0 1" contype="1" conaffinity="1" solref="0.01 1"/>
     </body>
 
     <body mocap="true" name="mocap_target">

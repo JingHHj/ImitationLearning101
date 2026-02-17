@@ -26,7 +26,7 @@ import cv2
 from loop_rate_limiters import RateLimiter
 import mink
 import teledex
-from utils import key_callback
+from recoder_data.utils import key_callback
 
 CAMERA_WIDTH = 480
 CAMERA_HEIGHT = 480
@@ -150,7 +150,7 @@ def main():
 
                 combined = np.hstack([side_image, ee_image])
                 cv2.imshow("Camera Views", cv2.cvtColor(combined, cv2.COLOR_RGB2BGR))
-                cv2.waitKey(1)
+                cv2.waitKey(0.01)
 
             step_count += 1
             viewer.sync()

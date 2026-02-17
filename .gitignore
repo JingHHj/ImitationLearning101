@@ -1,0 +1,17 @@
+*.hdf5
+
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+venv/
+env/
+ENV/
+
+*.egg-info/
+dist/
+build/
+
+.DS_Store

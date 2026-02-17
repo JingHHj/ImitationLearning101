@@ -17,8 +17,13 @@
       <default class="collision">
         <geom group="3" type="mesh" contype="0" conaffinity="0"/>
         <default class="primitive_collision">
+          <!-- Original: low torsional/rolling friction
           <geom group="3" type="box" contype="0" conaffinity="0"
            condim="3" solimp="0.99 0.995 0.01" solref="0.01 1" friction="1 0.005 0.0001"/>
+          -->
+          <geom group="3" type="box" contype="0" conaffinity="0"
+           condim="3" solimp="0.99 0.995 0.01" solref="0.01 1" friction="1 0.05 0.001"/>
+          <!-- Original: no conaffinity, contacts disabled
           <default class="fingertip_pad_collision_1">
             <geom type="box" size="0.011 0.0075 0.01" pos="0 0.0185 0.011"/>
           </default>
@@ -27,6 +32,16 @@
           </default>
           <default class="fingertip_pad_collision_3">
             <geom type="box" size="0.00875 0.0035 0.01175" pos="0 0.0159 0.02835" quat="1 0.25 0 0"/>
+          </default>
+          -->
+          <default class="fingertip_pad_collision_1">
+            <geom type="box" size="0.011 0.0075 0.01" pos="0 0.0185 0.011" conaffinity="1"/>
+          </default>
+          <default class="fingertip_pad_collision_2">
+            <geom type="box" size="0.011 0.0044 0.0019" pos="0 0.0068 0.0022" conaffinity="1"/>
+          </default>
+          <default class="fingertip_pad_collision_3">
+            <geom type="box" size="0.00875 0.0035 0.01175" pos="0 0.0159 0.02835" quat="1 0.25 0 0" conaffinity="1"/>
           </default>
           <default class="fingertip_pad_collision_4">
             <geom type="box" size="0.00875 0.0076 0.00825" pos="0 0.00758 0.04525" conaffinity="3"/>
